@@ -18,20 +18,20 @@ const userschema = new mongoose.Schema({
         ref: "Review",
       }
     ],
-    logins:[
-          {
-            type: mongoose.Schema.ObjectId,
-            ref: "login",
-          }
-        ],
-  images:[
-          {
-            type: mongoose.Schema.ObjectId,
-            ref: "images",
-          }
-        ],
- 
-});
+    logins: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: "login",
+      }
+    ],
+    images: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: "images",
+      }
+    ],
+}, { timestamps: true }); // ✅ This adds `createdAt` and `updatedAt`
+
 // console.log(data);
 // console.log(data);
 

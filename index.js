@@ -6,7 +6,8 @@ const path = require("path");
 const showlist = require("./route/showlist");
 const app = express();
 const port = 1000;
-
+const dotenv = require("dotenv");
+dotenv.config();
 
 const session = require("express-session");
 const flash = require("connect-flash");
@@ -83,7 +84,10 @@ app.use("/showlist/:id", reviews);
 // connection of monogodb;
 main().then(() => { console.log("connected successful to DB") }).catch(err => { console.log(err); })
 async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/showlist')
+    console.log("Connecting to MongoDB Atlas");
+    // await mongoose.connect(process.env.Database_url_atlas)
+    await mongoose.connect(process.env.Database_url_atlas) 
+    console.log("Connected to MongoDB Atlas");
 }
 
 // creating function for error handling
